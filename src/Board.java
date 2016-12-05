@@ -74,14 +74,36 @@ public class Board
 	{
 		String myOutput = "";
 		
-		for(int i = 0; i < 14; i++)
+		if(board.get(13).myStones < 10)
+			myOutput = myOutput + "        " + "0" + board.get(13).getStones() + "        \n";
+		else
+			myOutput = myOutput + "        " + board.get(13).getStones() + "        \n";
+		
+		for(int i = 12; i > 6; i--)
 		{
-			Cup currentCup = board.get(i);
-			if(currentCup.myStones < 10)
-				myOutput = myOutput + "0" + currentCup.getStones() + " ";
-			else
-				myOutput = myOutput + currentCup.getStones() + " ";
+				Cup currentCup = board.get(i);
+				if(currentCup.myStones < 10)
+					myOutput = myOutput + "0" + currentCup.getStones() + " ";
+				else
+					myOutput = myOutput + currentCup.getStones() + " ";
 		}
+		
+		myOutput += "\n";
+
+		for(int i = 0; i < 6; i++)
+		{
+				Cup currentCup = board.get(i);
+				if(currentCup.myStones < 10)
+					myOutput = myOutput + "0" + currentCup.getStones() + " ";
+				else
+					myOutput = myOutput + currentCup.getStones() + " ";
+		}
+		
+		if(board.get(6).myStones < 10)
+			myOutput = myOutput + "\n        " + "0" + board.get(6).getStones() + "        ";
+		else
+			myOutput = myOutput + "\n        " + board.get(6).getStones() + "        ";
+		
 		System.out.println(myOutput);
 	}
 	
